@@ -40,10 +40,26 @@ main()
     scanf(" %s", password);
     for (i=0; i<strlen(password);i++)
     {
-      if (isDigit(password[i]))
+      if (isdigit(password[i]))
       {
         hasDigit=1;
         continue;
+      }
+      else if (isupper(password[i]))
+      {
+        hasUpper=1;
+        continue;
+      }
+      else if (islower(password[i]))
+      {
+        hasLower=1;
+        continue;
+      }
+      else
+      {
+        hasSpecial=1;
+      }
     }
-  }
+  } while (hasDigit&&hasUpper&&hasLower&&hasSpecial);
+  printf("\nCongratulations! You are signed in! You can now enjoy a lot of game");
 }
